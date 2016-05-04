@@ -7,6 +7,8 @@ $(document)
 
 					var sampleQuery3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX gzt: <http://www.gazettes-online.co.uk/ontology#>\n\nSELECT ?n WHERE {\n\t?n a gzt:Notice .\n\t?n gzt:hasPublicationDate ?d .\n\tFILTER (?d >= '2010-09-01'^^xsd:date)\n}\nORDER BY ?d\nLIMIT 100";
 
+          var sampleQuery4 = "select ?telleobjekt where {?telleobjekt <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://test-psi.udir.no/ontologi/kl06/laereplan>.}";
+
 					var flintConfig = {
 						"interface" : {
 							"toolbar" : true,
@@ -96,11 +98,7 @@ $(document)
 								"query" : "query",
 								"update" : "update"
 							},
-							"selectFormats" : [ {
-								"name" : "Plain text",
-								"format" : "text",
-								"type" : "text/plain"
-							}, {
+							"selectFormats" : [  {
 								"name" : "SPARQL-XML",
 								"format" : "sparql",
 								"type" : "application/sparql-results+xml"
@@ -124,51 +122,51 @@ $(document)
 							} ]
 						},
 						"endpoints" : [
-								{
-									"name" : "Legislation",
-									"uri" : "http://gov.tso.co.uk/legislation/sparql",
-									"modes" : ["sparql10"],
-									queries : [
-											{
-												"name" : "Sample Legislation Query 1",
-												"description" : "Select up to 100 pieces of legislation after a given date, with most recent first.",
-												"query" : sampleQuery1
-											},
-											{
-												"name" : "Sample Legislation Query 2",
-												"description" : "The RDF description of each piece of legislation is stored in a separate named graph, so all of the RDF for the item can be retrieved with the following query.",
-												"query" : sampleQuery2
-											} ]
-								},
-								{
-									"name" : "Gazettes",
-									"uri" : "http://gov.tso.co.uk/gazettes/sparql",
-									"modes" : ["sparql10"],
-									queries : [ {
-										"name" : "Sample Gazettes Query 1",
-										"description" : "Select the first 100 notices after a given date.",
-										"query" : sampleQuery3
-									} ]
-								},
-								{
-									"name" : "Education",
-									"uri" : "http://gov.tso.co.uk/education/sparql",
-									"modes" : ["sparql10"]
-								},
-								{
-									"name" : "Ordnance Survey",
-									"uri" : "http://os.services.tso.co.uk/geo/sparql",
-									"modes" : ["sparql10"]
-								},
-								{
-									"name" : "Transport",
-									"uri" : "http://gov.tso.co.uk/transport/sparql",
-									"modes" : ["sparql10"]
-								}, {
-									"name" : "COINS",
-									"uri" : "http://gov.tso.co.uk/coins/sparql",
-									"modes" : ["sparql10"]
-								} ],
+							{
+								"name" : "Kl06 Test",
+								"uri" : "http://test-data.udir.no/kl06/sparql",
+								"modes" : ["sparql10"],
+								queries : [
+										{
+											"name" : "Uthenting av type",
+											"description" : "Uthenting av alle lærplaner",
+											"query" : sampleQuery4
+										}]
+							},
+							{
+								"name" : "Kl06 Beta",
+								"uri" : "http://beta-data.udir.no/kl06/sparql",
+								"modes" : ["sparql10"],
+								queries : [
+										{
+											"name" : "Uthenting av type",
+											"description" : "Uthenting av alle lærplaner",
+											"query" : sampleQuery4
+										}]
+							},
+							{
+								"name" : "Kl06 QA",
+								"uri" : "http://qa-data.udir.no/kl06/sparql",
+								"modes" : ["sparql10"],
+								queries : [
+										{
+											"name" : "Uthenting av type",
+											"description" : "Uthenting av alle lærplaner",
+											"query" : sampleQuery4
+										}]
+							},
+							{
+								"name" : "Kl06 Prod",
+								"uri" : "http://data.udir.no/kl06/sparql",
+								"modes" : ["sparql10"],
+								queries : [
+										{
+											"name" : "Uthenting av type",
+											"description" : "Uthenting av alle lærplaner",
+											"query" : sampleQuery4
+										}]
+							}
+						 ],
 						"defaultModes" : [ {
 							"name" : "SPARQL 1.0",
 							"mode" : "sparql10"

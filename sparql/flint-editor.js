@@ -1590,9 +1590,9 @@ function FlintEditor(container, imagesPath, config) {
 					paramsData[config.defaultEndpointParameters.queryParameters.query] = "SELECT DISTINCT ?p WHERE {?s ?p ?o} ORDER BY ?p LIMIT 1000";
 					$
 							.ajax({
-								url : datasetItem.uri,
-								data : paramsData,
-								type : 'post',
+								url : datasetItem.uri  + "?" +$.param(paramsData),
+						//		data : paramsData,
+								type : 'get',
 								headers : {
 									"Accept" : "application/sparql-results+json"
 								},
@@ -1651,9 +1651,9 @@ function FlintEditor(container, imagesPath, config) {
 					paramsData[config.defaultEndpointParameters.queryParameters.query] = "SELECT DISTINCT ?o WHERE {?s a ?o} ORDER BY ?o LIMIT 1000";
 					$
 							.ajax({
-								url : datasetItem.uri,
-								data : paramsData,
-								type : 'post',
+								url : datasetItem.uri  + "?" +$.param(paramsData),
+							//	data : paramsData,
+								type : 'get',
 								headers : {
 									"Accept" : "application/sparql-results+json"
 								},
@@ -2217,7 +2217,7 @@ function FlintEditor(container, imagesPath, config) {
 				if (flint.getMenu)
 					flint.getMenu().setEnabled("Cut", false);
 			}
-			
+
 			if (cm.historySize().undo > 0) {
 				if (flint.getToolbar)
 					flint.getToolbar().setEnabled("Undo", true);
@@ -2229,7 +2229,7 @@ function FlintEditor(container, imagesPath, config) {
 				if (flint.getMenu)
 					flint.getMenu().setEnabled("Undo", false);
 			}
-			
+
 			if (cm.historySize().redo > 0) {
 				if (flint.getToolbar)
 					flint.getToolbar().setEnabled("Redo", true);
@@ -2786,9 +2786,9 @@ function FlintEditor(container, imagesPath, config) {
 					paramsData[paramsDataItem] = cm.getCodeMirror().getValue();
 					var mimeType = datasetMimeTypeItem.getMimeType();
 					$.ajax({
-						url : datasetItems.getEndpoint(),
-						type : 'post',
-						data : paramsData,
+						url : datasetItems.getEndpoint() + "?" +$.param(paramsData),
+						type : 'get',
+						//data : paramsData,
 						headers : {
 							"Accept" : mimeType
 						},
@@ -2826,9 +2826,9 @@ function FlintEditor(container, imagesPath, config) {
 					paramsData[paramsDataItem] = cm.getCodeMirror().getValue();
 					var mimeType = endpointMimeTypeItem.getMimeType();
 					$.ajax({
-						url : endpointItem.getEndpoint(),
-						type : 'post',
-						data : paramsData,
+						url : endpointItem.getEndpoint() + "?" +$.param(paramsData),
+						type : 'get',
+					//	data : paramsData,
 						headers : {
 							"Accept" : mimeType
 						},
