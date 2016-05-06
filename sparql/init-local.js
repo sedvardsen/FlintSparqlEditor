@@ -125,7 +125,7 @@ $(document)
 							{
 								"name" : "Kl06 Test",
 								"uri" : "http://test-data.udir.no/kl06/sparql",
-								"modes" : ["sparql10"],
+								"modes" : ["sparql11query"],
 								queries : [
 										{
 											"name" : "Uthenting av type",
@@ -136,7 +136,7 @@ $(document)
 							{
 								"name" : "Kl06 Beta",
 								"uri" : "http://beta-data.udir.no/kl06/sparql",
-								"modes" : ["sparql10"],
+								"modes" : ["sparql11query"],
 								queries : [
 										{
 											"name" : "Uthenting av type",
@@ -147,7 +147,7 @@ $(document)
 							{
 								"name" : "Kl06 QA",
 								"uri" : "http://qa-data.udir.no/kl06/sparql",
-								"modes" : ["sparql10"],
+								"modes" : ["sparql11query"],
 								queries : [
 										{
 											"name" : "Uthenting av type",
@@ -158,7 +158,7 @@ $(document)
 							{
 								"name" : "Kl06 Prod",
 								"uri" : "http://data.udir.no/kl06/sparql",
-								"modes" : ["sparql10"],
+								"modes" : ["sparql11query"],
 								queries : [
 										{
 											"name" : "Uthenting av type",
